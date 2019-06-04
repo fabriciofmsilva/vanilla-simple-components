@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sample | Web Components</title>
+</head>
+<body>
+  <h1>Web Components</h1>
+  <h2>Accordion</h2>
+  <style>
+    howto-accordion-heading {
+      background-color: white;
+      border: 1px solid black;
+    }
+    howto-accordion-heading[expanded] {
+      background-color: bisque;
+    }
+    howto-accordion-panel {
+      padding: 20px;
+      background-color: lightgray;
+    }
+  </style>
+  <howto-accordion>
+    <howto-accordion-heading>Tab 1</howto-accordion-heading>
+    <howto-accordion-panel>Content 1</howto-accordion-panel>
+    <howto-accordion-heading>Tab 2</howto-accordion-heading>
+    <howto-accordion-panel>Content 2</howto-accordion-panel>
+    <howto-accordion-heading>Tab 3</howto-accordion-heading>
+    <howto-accordion-panel>Content 3</howto-accordion-panel>
+  </howto-accordion>
+
+  <script type="module" src="app/howto-accordion.component.js"></script>
+
+  <h2>Checkbox</h2>
+  <style>
+    howto-checkbox {
+      vertical-align: middle;
+    }
+    howto-label {
+      vertical-align: middle;
+      display: inline-block;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 20px;
+      margin-left: 8px;
+    }
+  </style>
+  
+  <howto-checkbox id="join-checkbox"></howto-checkbox>
+  <howto-label for="join-checkbox">Join Newsletter</howto-label>
+
+  <script type="module" src="app/howto-checkbox.component.js"></script>
+
+  <h2>Label</h2>
+
+  <style>
+    body {
+      padding: 20px;
+    }
+    div {
+      margin-bottom: 10px;
+    }
+  
+    howto-label,
+    howto-checkbox {
+      vertical-align: middle;
+    }
+  </style>
+  
+  <div>
+    <howto-label for="foo">
+      Click Me
+    </howto-label>
+    <howto-checkbox id="foo"></howto-checkbox>
+  </div>
+  
+  <div>
+    <howto-label>
+      Click Me Too
+      <howto-checkbox></howto-checkbox>
+    </howto-label>
+  </div>
+  
+  <div>
+    <howto-label for="bar" id="baz">
+      Click Me As Well
+    </howto-label>
+    <howto-checkbox id="bar"></howto-checkbox>
+  </div>
+  
+  <div>
+    <howto-label>
+      <strong>Click Me Last</strong>
+      <howto-checkbox howto-label-target></howto-checkbox>
+    </howto-label>
+  </div>
+
+  <script type="module" src="app/howto-label.component.js"></script>
+
+  <h2>radio group</h2>
+  <fieldset>
+    <legend>Beverages:</legend>
+    <howto-radio-group id="radios">
+      <howto-radio-button>Water</howto-radio-button>
+      <howto-radio-button>Soda</howto-radio-button>
+      <howto-radio-button>Coffee</howto-radio-button>
+    </howto-radio-group>
+  </fieldset>
+
+  <script type="module" src="app/howto-radio-group.component.js"></script>
+
+  <h2>Tabs</h2>
+  <style>
+    howto-tab {
+      border: 1px solid black;
+      padding: 20px;
+    }
+    howto-panel {
+      padding: 20px;
+      background-color: lightgray;
+    }
+    howto-tab[selected] {
+      background-color: bisque;
+    }
+    howto-tabs:not(:defined), howto-tab:not(:defined), howto-panel:not(:defined) {
+      display: block;
+    }
+  </style>
+  
+  <howto-tabs>
+    <howto-tab role="heading" slot="tab">Tab 1</howto-tab>
+    <howto-panel role="region" slot="panel">Content 1</howto-panel>
+    <howto-tab role="heading" slot="tab">Tab 2</howto-tab>
+    <howto-panel role="region" slot="panel">Content 2</howto-panel>
+    <howto-tab role="heading" slot="tab">Tab 3</howto-tab>
+    <howto-panel role="region" slot="panel">Content 3</howto-panel>
+  </howto-tabs>
+
+  <script type="module" src="app/howto-tabs.component.js"></script>
+
+  <h2>Tabs</h2>
+
+  <style>
+    howto-toggle-button {
+      background-color: #eee;  
+      padding: 3px;
+      cursor: default;
+      user-select: none;
+      border: 1px solid #333;
+      border-radius: 3px;
+      transition: background-color .2s ease;
+    }
+  
+    howto-toggle-button[pressed],
+    howto-toggle-button:not([disabled]):active {
+      background-color: #999;
+    }
+  
+    howto-toggle-button[disabled] {
+      opacity: 0.35;
+    }
+  </style>
+  
+  <howto-toggle-button>Press me</howto-toggle-button>
+
+  <script type="module" src="app/howto-toggle-button.component.js"></script>
+
+  <h2>Tooltip</h2>
+
+  <div class="text">
+    <label for="name">Your name:</label>
+    <input id="name" aria-describedby="tp1"/>
+    <howto-tooltip id="tp1">Ideally your name is Batman</howto-tooltip>
+    <br>
+    <label for="cheese">Favourite type of cheese: </label>
+    <input id="cheese" aria-describedby="tp2"/>
+    <howto-tooltip id="tp2">Help I am trapped inside a tooltip message</howto-tooltip>
+  </div>
+
+  <script type="module" src="app/howto-tooltip.component.js"></script>
+</body>
+</html>
